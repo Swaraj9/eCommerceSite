@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
 
   useEffect(() => {
     const getProducts = async () => {
@@ -20,18 +21,25 @@ function App() {
 
   return (
     <div className="flex">
-      <Navbar />
+      <Navbar
+        searchBar={true}
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+      />
       <div className="mt-20 text-xl flex flex-wrap w-full align-middle justify-center">
-        {products.map((product) => (
-          <Card
-            key={product.id}
-            id={product.id}
-            title={product.title}
-            brand={product.brand}
-            price={product.price}
-            thumbnail={product.thumbnail}
-          />
-        ))}
+        {products
+          .filter((product) => product.title.toLowerCase().includes(searchInput.toLocaleLowerCase()))
+          .map((product) => (
+            <Card
+              key={product.id}
+              id={product.id}
+              title={product.title}
+              brand={product.brand}
+              price={product.price}
+              discount={product.discountPercentage}
+              thumbnail={product.thumbnail}
+            />
+          ))}
       </div>
     </div>
   );

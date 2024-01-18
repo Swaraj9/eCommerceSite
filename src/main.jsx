@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     path: "products/:productId",
     element: <Product/>,
   }
-]);
+], {basename:"/eCommerceSite"});
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
