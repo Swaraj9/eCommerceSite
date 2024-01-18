@@ -37,7 +37,7 @@ const Product = () => {
 
   return (
     <div className="flex">
-      <Navbar searchBar={false} />
+      <Navbar searchBar={true} />
       <div className="flex mt-20 flex-col sm:flex-row w-full p-5">
         <div className="mr-5">
           <Carousel className="max-w-4xl">
@@ -72,7 +72,7 @@ const Product = () => {
           </div>
           <div>{product.description}</div>
           <button className="text-2xl text-yellow-400 border-yellow-400 border-2 p-1 pl-3 pr-3 rounded mt-5 duration-300 hover:bg-yellow-400 hover:text-neutral-700 flex items-center gap-3">
-            <FaCartArrowDown/>
+            <FaCartArrowDown />
             Add to Cart
           </button>
         </div>
