@@ -27,7 +27,7 @@ const Navbar = ({ searchBar, searchInput, setSearchInput }) => {
         </div>
       )}
       <div className="text-2xl ml-5">
-        <Link to="/cart" reloadDocument>
+        <Link to="/cart">
           <div className="text-sm text-center z-10 text-orange-500">1</div>
           <MdOutlineShoppingCart />
           <div className="text-xs text-center">Cart</div>
