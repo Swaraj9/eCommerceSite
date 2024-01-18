@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./pages/App.jsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Product from "./pages/Product.jsx";
 import Cart from "./pages/Cart.jsx";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   [
     {
       path: "/",
