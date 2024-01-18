@@ -3,6 +3,6 @@
 This is a frontend for an E Commerce Site
 
 ## To run locally:
-npm install
+> npm install
 
-npm run dev 
+> npm run dev 
