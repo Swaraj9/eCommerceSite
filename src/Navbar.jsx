@@ -25,7 +25,7 @@ const Navbar = ({ searchBar, searchInput, setSearchInput }) => {
         </div>
       )}
       <div className="">
-        <Link to="cart">
+        <Link to="/cart">
           <div className="text-sm text-center z-10 text-red-500">1</div>
           <MdOutlineShoppingCart />
           <div className="text-sm text-center">Cart</div>
