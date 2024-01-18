@@ -1,26 +1,11 @@
-// import { useEffect } from "react";
-import Card from "./Card";
+import Card from "../components/Card";
 import { useState } from "react";
-import Navbar from "./Navbar";
-import { useProducts } from "./customHook.jsx";
+import Navbar from "../components/Navbar.jsx";
+import { useProducts } from "../hooks/customHook.jsx";
 
 function App() {
-  // const [products, setProducts] = useState([]);
-
   const [searchInput, setSearchInput] = useState("");
   const products = useProducts();
-
-  // useEffect(() => {
-  //   const getProducts = async () => {
-  //     const res = await fetch("https://dummyjson.com/products");
-  //     let prods = await res.json();
-  //     prods = prods.products;
-
-  //     setProducts([...prods]);
-  //   };
-
-  //   getProducts();
-  // }, []);
 
   return (
     <div className="flex">

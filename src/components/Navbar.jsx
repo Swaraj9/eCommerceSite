@@ -5,7 +5,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 
 const Navbar = ({ searchBar, searchInput, setSearchInput }) => {
   return (
-    <div className="flex p-3 items-center justify-around fixed z-10 w-full bg-neutral-900 text-4xl duration-300">
+    <div className="flex p-3 items-center justify-around fixed z-10 w-full bg-neutral-900 text-xl sm:text-4xl duration-300">
       <div className="w-fit text-yellow-400 duration-100 hover:font-bold">
         <Link to="/" reloadDocument>
           Test Site
@@ -26,11 +26,11 @@ const Navbar = ({ searchBar, searchInput, setSearchInput }) => {
           </button>
         </div>
       )}
-      <div className="">
+      <div className="text-2xl ml-5">
         <Link to="/cart" reloadDocument>
-          <div className="text-sm text-center z-10 text-red-500">1</div>
+          <div className="text-sm text-center z-10 text-orange-500">1</div>
           <MdOutlineShoppingCart />
-          <div className="text-sm text-center">Cart</div>
+          <div className="text-xs text-center">Cart</div>
         </Link>
       </div>
     </div>
