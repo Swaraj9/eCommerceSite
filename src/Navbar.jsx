@@ -7,7 +7,9 @@ const Navbar = ({ searchBar, searchInput, setSearchInput }) => {
   return (
     <div className="flex p-3 items-center justify-around fixed z-10 w-full bg-neutral-900 text-4xl duration-300">
       <div className="w-fit text-yellow-400 duration-100 hover:font-bold">
-        <Link to="/">Test Site</Link>
+        <Link to="/" reloadDocument>
+          Test Site
+        </Link>
       </div>
       {searchBar && (
         <div className="flex w-full sm:w-3/5 items-center bg-neutral-700 rounded-md pr-5 text-lg">
@@ -25,7 +27,7 @@ const Navbar = ({ searchBar, searchInput, setSearchInput }) => {
         </div>
       )}
       <div className="">
-        <Link to="/cart">
+        <Link to="/cart" reloadDocument>
           <div className="text-sm text-center z-10 text-red-500">1</div>
           <MdOutlineShoppingCart />
           <div className="text-sm text-center">Cart</div>

@@ -1,23 +1,26 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Card from "./Card";
 import { useState } from "react";
 import Navbar from "./Navbar";
+import { useProducts } from "./customHook.jsx";
 
 function App() {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
+
   const [searchInput, setSearchInput] = useState("");
+  const products = useProducts();
 
-  useEffect(() => {
-    const getProducts = async () => {
-      const res = await fetch("https://dummyjson.com/products");
-      let prods = await res.json();
-      prods = prods.products;
+  // useEffect(() => {
+  //   const getProducts = async () => {
+  //     const res = await fetch("https://dummyjson.com/products");
+  //     let prods = await res.json();
+  //     prods = prods.products;
 
-      setProducts([...prods]);
-    };
+  //     setProducts([...prods]);
+  //   };
 
-    getProducts();
-  }, []);
+  //   getProducts();
+  // }, []);
 
   return (
     <div className="flex">
@@ -28,7 +31,11 @@ function App() {
       />
       <div className="mt-20 text-xl flex flex-wrap w-full align-middle justify-center">
         {products
-          .filter((product) => product.title.toLowerCase().includes(searchInput.toLocaleLowerCase()))
+          .filter((product) =>
+            product.title
+              .toLowerCase()
+              .includes(searchInput.toLocaleLowerCase())
+          )
           .map((product) => (
             <Card
               key={product.id}

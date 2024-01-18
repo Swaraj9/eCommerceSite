@@ -21,7 +21,7 @@ const router = createBrowserRouter(
       element: <Cart />,
     },
   ],
-  { basename: "/eCommerceSite" }
+  { basename: "/eCommerceSite/" }
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(

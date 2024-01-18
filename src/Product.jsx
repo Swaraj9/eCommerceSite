@@ -7,7 +7,6 @@ import Navbar from "./Navbar";
 
 const Product = () => {
   const { productId } = useParams();
-
   const [product, setProduct] = useState("");
 
   const ratingToStars = (rating) => {
@@ -29,6 +28,7 @@ const Product = () => {
       const res = await fetch(`https://dummyjson.com/products/${productId}`);
       let prod = await res.json();
 
+      console.log(prod);
       setProduct(prod);
     };
 
