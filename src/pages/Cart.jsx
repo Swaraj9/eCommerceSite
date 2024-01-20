@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar.jsx";
 import { Link } from "react-router-dom";
 import CartCard from "../components/CartCard.jsx";
@@ -9,22 +9,24 @@ const Cart = () => {
   const productCount = useSelector((state) => state.cart.productCount);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
+  const [modal, setModal] = useState(false);
+
   let meow = false;
   return (
     <div className="flex flex-col">
       <Navbar searchBar={true} />
       <div className="my-8"></div>
       <div className="flex mt-10 flex-col w-full ">
-        {meow && (
-          <div className="flex flex-row">
+        {modal && (
+          <div className="flex flex-row ">
             <div className="w-1/12"></div>
-            <div className="flex justify-center rounded-lg bg-slate-400 py-6 w-10/12 md:text-lg">
-              Your order was placed.
+            <div className="flex justify-center rounded-lg bg-neutral-900 z-20 shadow shadow-orange-400 bg-blend-color-burn py-6 w-10/12 md:text-lg">
+              Your order placed successfully, order again!
             </div>
             <div className="w-1/12"></div>
           </div>
         )}
-        <div className="mt-4 flex flex-col-reverse w-full sm:flex-row sm:justify-center">
+        <div className="mt-6 flex flex-col-reverse w-full sm:flex-row sm:justify-center">
           <div>
             <div className="flex flex-col px-5 py-7 rounded-md">
               <div className="font-normal text-3xl pb-4 ">Shopping cart</div>
@@ -65,7 +67,10 @@ const Cart = () => {
               </div>
               <div className="mt-5">{`Total Items: ${productCount}`}</div>
               <div className="flex justify-items-center">
-                <button className="m-auto md:mx-4 text-center text-lg md:text-2xl text-yellow-400 border-yellow-400 border-2 p-1 px-5 rounded-md mt-7 duration-300 hover:bg-yellow-400 hover:text-neutral-900">
+                <button
+                  onClick={() => setModal(!modal)}
+                  className="m-auto md:mx-4 text-center text-lg md:text-2xl text-yellow-400 border-yellow-400 border-2 p-1 px-5 rounded-md mt-7 duration-300 hover:bg-yellow-400 hover:text-neutral-900"
+                >
                   Proceed to Buy
                 </button>
               </div>

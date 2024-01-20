@@ -35,7 +35,7 @@ const CartCard = ({ product, amount }) => {
           <div>{`Amount: ${amount}`}</div>
           <div
             onClick={() => dispatch(removeProduct(product))}
-            className="text-red-700 text-lg border-red-700 border-2 p-2 rounded-md duration-300 hover:text-neutral-900 hover:bg-red-700"
+            className="text-red-700 text-base border-red-700 border-2 p-2 rounded-md duration-300 hover:text-neutral-900 hover:bg-red-700"
           >
             <FaTrash />
           </div>
