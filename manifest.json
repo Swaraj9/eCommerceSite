@@ -1,0 +1,22 @@
+{
+  "background_color": "#383838",
+  "description": "A Dummy E Commerce Site",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "eCommerceSite",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "eComm",
+  "start_url": "/",
+  "theme_color": "#facc15",
+  "categories": [],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "./logo.svg",
+      "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [],
+  "id": "eCommerceSite"
+}
