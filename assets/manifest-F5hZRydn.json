@@ -2,6 +2,7 @@
   "background_color": "#383838",
   "description": "A Dummy E Commerce Site",
   "dir": "ltr",
+  "display_override": ["fullscreen", "minimal-ui", "window-controls-overlay"],
   "display": "fullscreen",
   "name": "eCommerceSite",
   "orientation": "any",
