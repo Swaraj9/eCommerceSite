@@ -1,11 +1,9 @@
 import React from "react";
 import { FaTrash } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { removeProduct } from "../redux/cartSlice";
 
 const CartCard = ({ product, amount }) => {
-  const id = product.id;
   const title = product.title;
   const brand = product.brand;
   const price = product.price;
