@@ -9,7 +9,7 @@
   "short_name": "eComm",
   "start_url": "/",
   "theme_color": "#facc15",
-  "categories": [],
+  "categories": ["education"],
   "screenshots": [],
   "icons": [
     {
