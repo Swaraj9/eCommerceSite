@@ -2,7 +2,7 @@
   "background_color": "#383838",
   "description": "A Dummy E Commerce Site",
   "dir": "ltr",
-  "display": "standalone",
+  "display": "fullscreen",
   "name": "eCommerceSite",
   "orientation": "any",
   "scope": "/",
