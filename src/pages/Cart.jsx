@@ -11,7 +11,6 @@ const Cart = () => {
 
   const [modal, setModal] = useState(false);
 
-  let meow = false;
   return (
     <div className="flex flex-col">
       <Navbar searchBar={true} />
