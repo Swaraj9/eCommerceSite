@@ -14,7 +14,7 @@ function App() {
         searchInput={searchInput}
         setSearchInput={setSearchInput}
       />
-      <div className="mt-20 text-xl flex flex-wrap w-full align-middle justify-center">
+      <div className="pt-24 bg-gradient-to-br from-[#003566] via-[#001D3D] to-[#000814] text-xl flex flex-wrap w-full align-middle justify-center">
         {products
           .filter((product) =>
             product.title

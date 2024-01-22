@@ -12,10 +12,10 @@ const CartCard = ({ product, amount }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="p-4 bg-neutral-900 mb-5 w-full rounded-md duration-300 flex">
+    <div className="p-4 pr-2 bg-[#000814] shadow-xl mb-5 w-full duration-300 flex hover:scale-[1.02]">
       <div>
         <img
-          className="w-60 rounded-md"
+          className="w-60"
           src={thumbnail}
           alt={`${title} thumbnail`}
         />
@@ -28,7 +28,7 @@ const CartCard = ({ product, amount }) => {
           </div>
           <div className="flex flex-col text-center">
             <div className="text-2xl text-green-600">{`${price}$`}</div>
-            <div className="text-xs  text-orange-500 text-right">{`${discount}% OFF`}</div>
+            <div className="text-xs  text-[#FFD60A] text-right">{`${discount}% OFF`}</div>
           </div>
         </div>
         <div className="text-base flex items-center justify-between">

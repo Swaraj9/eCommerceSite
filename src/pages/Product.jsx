@@ -42,7 +42,7 @@ const Product = () => {
   return (
     <div className="flex">
       <Navbar searchBar={true} />
-      <div className="flex mt-20 flex-col sm:flex-row w-full p-5">
+      <div className="flex pt-24 h-full min-h-screen bg-gradient-to-br from-[#003566] via-[#001D3D] to-[#000814] flex-col sm:flex-row w-full p-5">
         <div className="mr-5">
           <Carousel className="max-w-4xl">
             {product &&
