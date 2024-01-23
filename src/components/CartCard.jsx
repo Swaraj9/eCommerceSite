@@ -15,7 +15,7 @@ const CartCard = ({ product, amount }) => {
     <div className="p-4 pr-2 bg-[#000814] shadow-xl mb-5 w-full duration-300 flex hover:scale-[1.02]">
       <div>
         <img
-          className="w-60"
+          className="w-6"
           src={thumbnail}
           alt={`${title} thumbnail`}
         />

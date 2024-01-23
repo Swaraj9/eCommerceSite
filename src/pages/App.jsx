@@ -1,10 +1,13 @@
 import Card from "../components/Card";
 import { useState } from "react";
 import Navbar from "../components/Navbar.jsx";
-import { useProducts } from "../hooks/customHook.jsx";
+import { useProducts } from "../hooks/useProducts.jsx";
+import { useEffect } from "react";
 
 function App() {
   const [searchInput, setSearchInput] = useState("");
+  const [selectedCats, setSelectedCats] = useState([]);
+
   const products = useProducts();
 
   return (
@@ -13,24 +16,33 @@ function App() {
         searchBar={true}
         searchInput={searchInput}
         setSearchInput={setSearchInput}
+        selectedCats={selectedCats}
+        setSelectedCats={setSelectedCats}
       />
-      <div className="pt-24 bg-gradient-to-br from-[#003566] via-[#001D3D] to-[#000814] text-xl flex flex-wrap w-full align-middle justify-center">
+      <div className="pt-40 bg-neutral-800 text-xl flex flex-wrap w-full align-middle justify-center">
         {products
-          .filter((product) =>
-            product.title
-              .toLowerCase()
-              .includes(searchInput.toLocaleLowerCase())
-          )
+          .filter((product) => {
+            if (selectedCats.length > 0) {
+              if (
+                product.title
+                  .toLowerCase()
+                  .includes(searchInput.toLocaleLowerCase()) &&
+                selectedCats.includes(product.category)
+              ) {
+                return true;
+              }
+            } else {
+              if (
+                product.title
+                  .toLowerCase()
+                  .includes(searchInput.toLocaleLowerCase())
+              ) {
+                return true
+              }
+            }
+          })
           .map((product) => (
-            <Card
-              key={product.id}
-              id={product.id}
-              title={product.title}
-              brand={product.brand}
-              price={product.price}
-              discount={product.discountPercentage}
-              thumbnail={product.thumbnail}
-            />
+            <Card key={product.id} product={product} />
           ))}
       </div>
     </div>

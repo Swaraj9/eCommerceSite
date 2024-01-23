@@ -5,7 +5,7 @@ export function useProducts() {
 
   useEffect(() => {
     const getProducts = async () => {
-      const res = await fetch("https://dummyjson.com/products");
+      const res = await fetch("https://dummyjson.com/products?limit=0");
       let prods = await res.json();
       prods = prods.products;
 

@@ -41,9 +41,9 @@ const Product = () => {
 
   return (
     <div className="flex">
-      <Navbar searchBar={true} />
-      <div className="flex pt-24 h-full min-h-screen bg-gradient-to-br from-[#003566] via-[#001D3D] to-[#000814] flex-col sm:flex-row w-full p-5">
-        <div className="mr-5">
+      <Navbar searchBar={false} />
+      <div className="flex pt-24 h-full min-h-screen bg-neutral-800 flex-col sm:flex-row w-full p-5">
+        <div className="mr-5 w-1/2">
           <Carousel className="max-w-4xl">
             {product &&
               product.images.map((image, index) => (
@@ -55,7 +55,7 @@ const Product = () => {
               ))}
           </Carousel>
         </div>
-        <div className="mt-5 h-full">
+        <div className="mt-5 h-full w-1/2">
           <div className="flex w-full justify-between">
             <div>
               <div className="text-5xl mb-3">{product.title}</div>

@@ -13,8 +13,8 @@ const Cart = () => {
 
   return (
     <div className="flex flex-col">
-      <Navbar searchBar={true} />
-      <div className="flex pt-24 h-full min-h-screen bg-gradient-to-br from-[#003566] via-[#001D3D] to-[#000814] flex-col w-full ">
+      <Navbar searchBar={false} />
+      <div className="flex pt-24 h-full min-h-screen bg=neutral-800 flex-col w-full ">
         {modal && (
           <div className="flex flex-row ">
             <div className="w-1/12"></div>
