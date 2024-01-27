@@ -43,7 +43,7 @@ const Product = () => {
     <div className="flex">
       <Navbar searchBar={false} />
       <div className="flex pt-24 h-full min-h-screen bg-gradient-to-r from-[#c9def4] via-[#f5ccd4] to-[#b8a4c9] dark:from-neutral-800 dark:via-neutral-800 dark:to-neutral-800 flex-col sm:flex-row w-full p-5 text-neutral-800 dark:text-neutral-50">
-        <div className="mr-5 w-1/2 p-5 bg-neutral-200 dark:bg-neutral-700 rounded-3xl shadow-2xl">
+        <div className="mr-5 w-full sm:w-1/2 p-5 bg-neutral-200 dark:bg-neutral-700 rounded-3xl shadow-2xl">
           <Carousel className="max-w-2xl">
             {product &&
               product.images.map((image, index) => (
@@ -55,7 +55,7 @@ const Product = () => {
               ))}
           </Carousel>
         </div>
-        <div className="mt-5 h-full w-1/2 bg-neutral-200 dark:bg-inherit p-5 dark:p-0 rounded-3xl dark:rounded-none shadow-xl dark:shadow-none">
+        <div className="mt-5 h-full w-full sm:w-1/2 bg-neutral-200 dark:bg-inherit p-5 dark:p-0 rounded-3xl dark:rounded-none shadow-xl dark:shadow-none">
           <div className="flex w-full justify-between">
             <div>
               <div className="text-5xl mb-3">{product.title}</div>

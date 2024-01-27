@@ -29,7 +29,7 @@ const Category = ({ category, selectedCats, setSelectedCats }) => {
     <button
       key={category}
       onClick={() => modifyCategories()}
-      className={`dark:bg-neutral-700 shadow-lg dark:shadow-none bg-neutral-300 text-neutral-500 dark:text-neutral-50 flex items-center gap-2 rounded-3xl duration-100 p-2 pl-3 pr-3 text-nowrap ${
+      className={`dark:bg-neutral-700 shadow-lg dark:shadow-none bg-neutral-300 text-neutral-500 dark:text-neutral-50 flex items-center gap-2 rounded-3xl duration-100 sm:p-2 p-1 sm:pl-3 sm:pr-3 pl-2 pr-2 sm:text-base text-xs text-nowrap ${
         selected && "border-2 border-neutral-400"
       }`}
     >
@@ -56,17 +56,17 @@ const Navbar = ({
 
   return (
     <div className="flex flex-col fixed z-10 shadow-2xl dark:shadow-none w-full">
-      <div className="flex p-5 items-center justify-around w-full bg-neutral-200 dark:bg-neutral-800 border-b-2 border-neutral-300 dark:border-neutral-700 text-xl sm:text-3xl duration-300">
-        <div className="w-fit text-[#e4c428] dark:text-[#FFD60A] duration-100 hover:font-bold mr-5">
+      <div className="flex p-5 items-center justify-around w-full bg-neutral-200 dark:bg-neutral-800 border-b-2 border-neutral-300 dark:border-neutral-700 text-lg sm:text-3xl duration-300">
+        <div className="w-fit text-neutral-500 dark:text-[#FFD60A] duration-100 hover:font-bold mr-5">
           <Link to="/">
             <div>eCommerceSite</div>
           </Link>
         </div>
         {searchBar && (
-          <div className="flex w-4/6 rounded-3xl dark:shadow-inner md:w-3/6 items-center dark:border-2 bg-neutral-300 shadow-lg dark:bg-inherit dark:border-neutral-700 pr-5 text-base md:text-lg">
+          <div className="flex w-4/6 rounded-3xl dark:shadow-inner md:w-3/6 items-center dark:border-2 bg-neutral-300 shadow-lg dark:bg-inherit dark:border-neutral-700 sm:pr-5 pr-3 text-xs sm:text-lg">
             <input
               placeholder="Search"
-              className="p-5 w-full text-neutral-500 dark:text-neutral-50 outline-none font-extralight rounded-3xl text-base md:text-lg h-6 shadow-2xl bg-transparent"
+              className="sm:p-3 p-2 w-full text-neutral-500 dark:text-neutral-50 outline-none font-extralight rounded-3xl text-xs sm:text-lg shadow-2xl bg-transparent"
               onChange={(e) => {
                 setSearchInput(e.target.value);
               }}
@@ -81,13 +81,13 @@ const Navbar = ({
           <Switcher />
           <Link to="/cart">
             <div className="flex gap-3 dark:border-2 dark:border-neutral-700 rounded-3xl p-3 pt-2 pb-2 justify-center items-center bg-neutral-300 dark:bg-inherit shadow-lg dark:shadow-none">
-              <div className="text-base text-center z-10 text-neutral-500 dark:text-[#FFD60A]">
+              <div className="text-xs sm:text-base text-center z-10 text-neutral-500 dark:text-[#FFD60A]">
                 {cartItemCount}
               </div>
-              <MdOutlineShoppingCart />
+              <MdOutlineShoppingCart className="text-base sm:text-2xl" />
             </div>
           </Link>
-          <div className="text-4xl">
+          <div className="text-2xl sm:text-4xl">
             <PiUserCircle />
           </div>
         </div>

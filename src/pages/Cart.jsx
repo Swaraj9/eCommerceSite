@@ -14,11 +14,11 @@ const Cart = () => {
   return (
     <div className="flex flex-col">
       <Navbar searchBar={false} />
-      <div className="flex pt-24 text-neutral-800 dark:text-neutral-50 h-full min-h-screen bg=neutral-800 flex-col w-full ">
+      <div className="flex pt-24 pl-5 pr-5 sm:pl-0 sm:pr-0 text-neutral-800 dark:text-neutral-50 h-full min-h-screen bg=neutral-800 flex-col w-full ">
         {modal && (
           <div className="flex flex-row ">
             <div className="w-1/12"></div>
-            <div className="flex justify-center rounded-lg bg-neutral-900 z-20 shadow shadow-orange-400 bg-blend-color-burn py-6 w-10/12 md:text-lg">
+            <div className="flex justify-center rounded-lg bg-green-500 shadow-2xl py-6 w-10/12 md:text-lg">
               Your order placed successfully, order again!
             </div>
             <div className="w-1/12"></div>
