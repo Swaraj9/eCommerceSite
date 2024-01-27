@@ -2,13 +2,15 @@ import Card from "../components/Card";
 import { useState } from "react";
 import Navbar from "../components/Navbar.jsx";
 import { useProducts } from "../hooks/useProducts.jsx";
-import { useEffect } from "react";
+import useDarkMode from "../hooks/useDarkMode.jsx";
 
 function App() {
   const [searchInput, setSearchInput] = useState("");
   const [selectedCats, setSelectedCats] = useState([]);
 
   const products = useProducts();
+
+  const [colorTheme, setTheme] = useDarkMode();
 
   return (
     <div className="flex">
@@ -19,7 +21,7 @@ function App() {
         selectedCats={selectedCats}
         setSelectedCats={setSelectedCats}
       />
-      <div className="pt-40 bg-neutral-800 text-xl flex flex-wrap w-full align-middle justify-center">
+      <div className="pt-40 bg-gradient-to-r from-[#c9def4] via-[#f5ccd4] to-[#b8a4c9] dark:from-neutral-800 dark:via-neutral-800 dark:to-neutral-800 text-xl flex flex-wrap w-full align-middle justify-center">
         {products
           .filter((product) => {
             if (selectedCats.length > 0) {
@@ -37,7 +39,7 @@ function App() {
                   .toLowerCase()
                   .includes(searchInput.toLocaleLowerCase())
               ) {
-                return true
+                return true;
               }
             }
           })

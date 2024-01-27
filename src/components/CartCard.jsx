@@ -12,10 +12,10 @@ const CartCard = ({ product, amount }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="p-4 pr-2 bg-[#000814] shadow-xl mb-5 w-full duration-300 flex hover:scale-[1.02]">
+    <div className="p-4 pr-2 shadow-2xl dark:shadow-none bg-neutral-200 dark:bg-neutral-700 rounded-xl mb-5 w-full duration-300 flex hover:scale-[1.02]">
       <div>
         <img
-          className="w-6"
+          className="rounded-xl"
           src={thumbnail}
           alt={`${title} thumbnail`}
         />

@@ -13,7 +13,7 @@ const Card = ({ product }) => {
   const thumbnail = product.thumbnail;
 
   return (
-    <div className="m-4 flex flex-col items-center rounded-xl bg-neutral-700 w-64 h-64 duration-300 hover:scale-[1.02]">
+    <div className="m-4 flex flex-col items-center rounded-xl shadow-2xl dark:shadow-none bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50 w-64 h-64 duration-300 hover:scale-[1.02]">
       <Link className="w-full" to={`/products/${id}`}>
         <div className="w-full flex justify-center bg-neutral-100 rounded-t-xl">
           <img
@@ -23,10 +23,10 @@ const Card = ({ product }) => {
           />
         </div>
       </Link>
-      <div className="flex flex-row w-full h-full self-start p-2 justify-between">
+      <div className="flex flex-row w-full border-t-2 border-neutral-200 dark:border-none h-full self-start p-2 justify-between">
         <div className="w-3/4 flex flex-col">
           <div className="text-lg text-ellipsis line-clamp-1">{title}</div>
-          <div className="text-sm text-ellipsis text-neutral-400 line-clamp-1">
+          <div className="text-sm text-ellipsis text-neutral-500 dark:text-neutral-400 line-clamp-1">
             {brand}
           </div>
         </div>

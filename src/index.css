@@ -10,12 +10,16 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: rgb(38,38,38);
+  @apply bg-gradient-to-r from-[#c9def4] via-[#f5ccd4] to-[#b8a4c9];
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.dark{
+  background: rgb(38,38,38);
 }
 
 @layer utilities {

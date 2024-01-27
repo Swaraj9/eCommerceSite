@@ -6,6 +6,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useCategories } from "../hooks/useCategories";
 import { IoClose } from "react-icons/io5";
+import Switcher from "./Switcher";
 
 const Category = ({ category, selectedCats, setSelectedCats }) => {
   const [selected, setSelected] = useState(false);
@@ -28,7 +29,7 @@ const Category = ({ category, selectedCats, setSelectedCats }) => {
     <button
       key={category}
       onClick={() => modifyCategories()}
-      className={`bg-neutral-700 flex items-center gap-2 rounded-3xl duration-100 p-2 pl-3 pr-3 text-nowrap ${
+      className={`dark:bg-neutral-700 shadow-lg dark:shadow-none bg-neutral-300 text-neutral-500 dark:text-neutral-50 flex items-center gap-2 rounded-3xl duration-100 p-2 pl-3 pr-3 text-nowrap ${
         selected && "border-2 border-neutral-400"
       }`}
     >
@@ -54,32 +55,33 @@ const Navbar = ({
   const categories = useCategories();
 
   return (
-    <div className="flex flex-col fixed z-10 w-full">
-      <div className="flex p-5 items-center justify-around w-full bg-neutral-800 border-b-2 border-neutral-700 text-xl sm:text-4xl duration-300">
-        <div className="w-fit text-yellow-400 duration-100 hover:font-bold mr-5">
+    <div className="flex flex-col fixed z-10 shadow-2xl dark:shadow-none w-full">
+      <div className="flex p-5 items-center justify-around w-full bg-neutral-200 dark:bg-neutral-800 border-b-2 border-neutral-300 dark:border-neutral-700 text-xl sm:text-3xl duration-300">
+        <div className="w-fit text-[#e4c428] dark:text-[#FFD60A] duration-100 hover:font-bold mr-5">
           <Link to="/">
             <div>eCommerceSite</div>
           </Link>
         </div>
         {searchBar && (
-          <div className="flex w-4/6 rounded-3xl shadow-inner md:w-3/6 items-center border-2 border-neutral-700 pr-5 text-base md:text-lg">
+          <div className="flex w-4/6 rounded-3xl dark:shadow-inner md:w-3/6 items-center dark:border-2 bg-neutral-300 shadow-lg dark:bg-inherit dark:border-neutral-700 pr-5 text-base md:text-lg">
             <input
               placeholder="Search"
-              className="p-5 w-full outline-none font-extralight rounded-3xl text-base md:text-lg h-6 shadow-2xl bg-inherit"
+              className="p-5 w-full text-neutral-500 dark:text-neutral-50 outline-none font-extralight rounded-3xl text-base md:text-lg h-6 shadow-2xl bg-transparent"
               onChange={(e) => {
                 setSearchInput(e.target.value);
               }}
               value={searchInput}
             />
-            <button className="text-[#FFD60A]">
+            <button className="text-[#e4c428] dark:text-[#FFD60A]">
               <FaSearch />
             </button>
           </div>
         )}
-        <div className="text-2xl flex-1 flex items-center gap-3 justify-end ml-5">
+        <div className="text-2xl flex-1 flex items-center gap-3 justify-end ml-5 text-neutral-500 dark:text-neutral-50">
+          <Switcher />
           <Link to="/cart">
-            <div className="flex gap-3 border-2 border-neutral-700 rounded-3xl p-3 pt-2 pb-2 justify-center items-center">
-              <div className="text-base text-center z-10 text-[#FFD60A]">
+            <div className="flex gap-3 dark:border-2 dark:border-neutral-700 rounded-3xl p-3 pt-2 pb-2 justify-center items-center bg-neutral-300 dark:bg-inherit shadow-lg dark:shadow-none">
+              <div className="text-base text-center z-10 text-neutral-500 dark:text-[#FFD60A]">
                 {cartItemCount}
               </div>
               <MdOutlineShoppingCart />
@@ -91,10 +93,11 @@ const Navbar = ({
         </div>
       </div>
       {searchBar && (
-        <div className="flex pl-2 no-scrollbar overflow-x-scroll  items-center gap-2 pt-3 pb-3 border-b-2 border-neutral-700 bg-neutral-800">
+        <div className="flex pl-2 no-scrollbar overflow-x-scroll  items-center gap-2 pt-3 pb-3 border-b-2 border-neutral-300 dark:border-neutral-700 bg-neutral-200 dark:bg-neutral-800">
           {categories.map((category) => {
             return (
               <Category
+                key={category}
                 category={category}
                 selectedCats={selectedCats}
                 setSelectedCats={setSelectedCats}

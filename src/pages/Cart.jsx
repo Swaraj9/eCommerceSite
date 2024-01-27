@@ -14,7 +14,7 @@ const Cart = () => {
   return (
     <div className="flex flex-col">
       <Navbar searchBar={false} />
-      <div className="flex pt-24 h-full min-h-screen bg=neutral-800 flex-col w-full ">
+      <div className="flex pt-24 text-neutral-800 dark:text-neutral-50 h-full min-h-screen bg=neutral-800 flex-col w-full ">
         {modal && (
           <div className="flex flex-row ">
             <div className="w-1/12"></div>
@@ -54,7 +54,7 @@ const Cart = () => {
           </div>
           <div className="mx-14"></div>
           <div>
-            <div className="bg-[#000814] px-5 py-7 shadow-xl m-auto">
+            <div className="shadow-2xl dark:shadow-none bg-neutral-200 dark:bg-neutral-700 rounded-xl px-5 py-7 m-auto">
               <div className="flex justify-between text-lg gap-10">
                 <div>{`Subtotal : ${totalPrice}$`}</div>
               </div>
@@ -67,7 +67,7 @@ const Cart = () => {
               <div className="flex justify-items-center">
                 <button
                   onClick={() => setModal(!modal)}
-                  className="m-auto md:mx-4 text-center text-lg md:text-2xl text-[#FFD60A] border-[#FFC300] border-2 p-1 px-5 mt-7 duration-300 hover:bg-[#FFC300] hover:text-neutral-900"
+                  className="text-2xl dark:text-yellow-400 dark:border-yellow-400 dark:hover:text-neutral-800 border-2 border-neutral-800 hover:border-yellow-400 p-1 pl-3 pr-3 rounded mt-5 duration-300 hover:bg-yellow-400 hover:text-neutral-700"
                 >
                   Proceed to Buy
                 </button>
