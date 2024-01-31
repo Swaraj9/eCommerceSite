@@ -4,7 +4,8 @@ import { PiUserCircle } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useSelector } from "react-redux";
-import { useCategories } from "../hooks/useCategories";
+// import { useCategories } from "../hooks/useCategories";
+import { useFetch } from "../hooks/useFetch";
 import { IoClose } from "react-icons/io5";
 import Switcher from "./Switcher";
 
@@ -52,7 +53,8 @@ const Navbar = ({
 }) => {
   const cartItemCount = useSelector((state) => state.cart.productCount);
 
-  const categories = useCategories();
+  // const categoriess = useCategories();
+  const categories = useFetch("https://dummyjson.com/products/categories");
 
   return (
     <div className="flex flex-col fixed z-10 shadow-2xl dark:shadow-none w-full">

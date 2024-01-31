@@ -1,14 +1,16 @@
 import Card from "../components/Card";
 import { useState } from "react";
 import Navbar from "../components/Navbar.jsx";
-import { useProducts } from "../hooks/useProducts.jsx";
 import useDarkMode from "../hooks/useDarkMode.jsx";
+// import { useProducts } from "../hooks/useProducts.jsx";
+import { useFetch } from "../hooks/useFetch.jsx";
 
 function App() {
   const [searchInput, setSearchInput] = useState("");
   const [selectedCats, setSelectedCats] = useState([]);
 
-  const products = useProducts();
+  // const productss = useProducts();
+  const products = useFetch("https://dummyjson.com/products?limit=0");
 
   const [colorTheme, setTheme] = useDarkMode();
 
