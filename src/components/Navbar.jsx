@@ -4,8 +4,9 @@ import { PiUserCircle } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useSelector } from "react-redux";
-import { useCategories } from "../hooks/useCategories";
-import { IoClose, IoMenu } from "react-icons/io5";
+// import { useCategories } from "../hooks/useCategories";
+import { useFetch } from "../hooks/useFetch";
+import { IoClose } from "react-icons/io5";
 import Switcher from "./Switcher";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
@@ -54,9 +55,8 @@ const Navbar = ({
 }) => {
   const cartItemCount = useSelector((state) => state.cart.productCount);
 
-  const categories = useCategories();
-
-  const [drawerOpen, setDrawenOpen] = useState(false);
+  // const categoriess = useCategories();
+  const categories = useFetch("https://dummyjson.com/products/categories");
 
   return (
     <div className="flex flex-col fixed z-10 shadow-2xl dark:shadow-none w-full">

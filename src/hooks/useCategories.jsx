@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-export function useCategories() {
-  const [categories, setCategories] = useState([]);
+// export function useCategories() {
+//   const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    const getCategories = async () => {
-      const res = await fetch("https://dummyjson.com/products/categories");
-      let cats = await res.json();
+//   useEffect(() => {
+//     const getCategories = async () => {
+//       const res = await fetch("https://dummyjson.com/products/categories");
+//       let cats = await res.json();
 
-      setCategories([...cats]);
-    };
+//       setCategories([...cats]);
+//     };
 
-    getCategories();
-  }, []);
+//     getCategories();
+//   }, []);
 
-  return categories;
-}
+//   return categories;
+// }
+
+//redundant code -> replaced by useFetch
