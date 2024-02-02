@@ -104,7 +104,7 @@ const Navbar = ({
         <Drawer
           open={drawerOpen}
           onClose={() => setDrawenOpen(!drawerOpen)}
-          direction="right"
+          direction="left"
           className="flex flex-col text-neutral-400"
         >
           <div className="h-full flex p-5 flex-col gap-5 bg-neutral-100 dark:bg-neutral-800">
