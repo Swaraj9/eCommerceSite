@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 // import { useCategories } from "../hooks/useCategories";
 import { useFetch } from "../hooks/useFetch";
 import { IoClose } from "react-icons/io5";
+import { IoMenu } from "react-icons/io5";
 import Switcher from "./Switcher";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
@@ -57,6 +58,7 @@ const Navbar = ({
 
   // const categoriess = useCategories();
   const categories = useFetch("https://dummyjson.com/products/categories");
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <div className="flex flex-col fixed z-10 shadow-2xl dark:shadow-none w-full">
@@ -96,23 +98,25 @@ const Navbar = ({
           </div>
         </div>
         <button
-          onClick={() => setDrawenOpen(!drawerOpen)}
-          className={`text-neutral-500 ${!searchBar && "ml-auto"} sm:hidden ml-3 text-2xl`}
+          onClick={() => setDrawerOpen(!drawerOpen)}
+          className={`text-neutral-500 ${
+            !searchBar && "ml-auto"
+          } sm:hidden ml-3 text-2xl`}
         >
           <IoMenu />
         </button>
         <Drawer
           open={drawerOpen}
-          onClose={() => setDrawenOpen(!drawerOpen)}
+          onClose={() => setDrawerOpen(!drawerOpen)}
           direction="left"
           className="flex flex-col text-neutral-400"
         >
           <div className="h-full flex p-5 flex-col gap-5 bg-neutral-100 dark:bg-neutral-800">
             <div className="flex items-end w-full justify-between border-b-2 border-neutral-200 dark:border-neutral-600 pb-2">
-              <PiUserCircle className="text-3xl text-[#e4c428]"/>
+              <PiUserCircle className="text-3xl text-[#e4c428]" />
               <div>Username</div>
             </div>
-            <Link to='/cart'>
+            <Link to="/cart">
               <div className="flex items-end w-full justify-between border-b-2 border-neutral-200 dark:border-neutral-600 pb-2">
                 <div className="flex flex-row gap-2 items-center text-[#e4c428]">
                   <MdOutlineShoppingCart className="text-2xl" />
@@ -125,7 +129,9 @@ const Navbar = ({
               <Switcher drawer={true} />
               <div>Theme</div>
             </div>
-            <button className="bg-[#FFD60A] text-neutral-50 dark:text-neutral-800 rounded-md pt-1 pb-1 mt-auto">Sign Out</button>
+            <button className="bg-[#FFD60A] text-neutral-50 dark:text-neutral-800 rounded-md pt-1 pb-1 mt-auto">
+              Sign Out
+            </button>
           </div>
         </Drawer>
       </div>
