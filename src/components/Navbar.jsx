@@ -120,12 +120,10 @@ const Navbar = ({
               <MdOutlineShoppingCart className="text-base sm:text-2xl" />
             </div>
           </Link>
-          <Link to="/login">
-            <div className="text-2xl flex dark:border-2 dark:border-neutral-700 rounded-3xl p-1 pr-3 items-center gap-3 sm:text-4xl bg-neutral-300 dark:bg-inherit shadow-lg dark:shadow-none">
-              <PiUserCircle />
-              <div className="text-base">{username}</div>
-            </div>
-          </Link>
+          <div onClick={() => signOut()} className="text-2xl cursor-pointer flex dark:border-2 dark:border-neutral-700 rounded-3xl p-1 pr-3 items-center gap-3 sm:text-4xl bg-neutral-300 dark:bg-inherit shadow-lg dark:shadow-none">
+            <PiUserCircle />
+            <div className="text-base">{username}</div>
+          </div>
         </div>
         <button
           onClick={() => setDrawerOpen(!drawerOpen)}

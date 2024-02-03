@@ -3,11 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    token: "",
+    token: localStorage.token,
   },
   reducers: {
     addToken: (state, action) => {
       state.token = action.payload;
+      localStorage.setItem("token",  action.payload);
     },
     removeToken: (state, action) => {
       state.token = "";
