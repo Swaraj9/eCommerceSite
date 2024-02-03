@@ -8,6 +8,7 @@ import Cart from "./pages/Cart.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/store.js";
 import { Login } from "./pages/Login.jsx";
+// import Dashboard from "./pages/Dashboard.jsx";
 
 const router = createBrowserRouter(
   [
@@ -24,9 +25,15 @@ const router = createBrowserRouter(
       element: <Cart />,
     },
     {
+      // exact: true,
       path: "login/",
       element: <Login />,
     },
+    // {
+    //   exact: true,
+    //   path: "dashboard/",
+    //   element: <Dashboard />,
+    // },
   ],
   { basename: "/eCommerceSite/" }
 );
