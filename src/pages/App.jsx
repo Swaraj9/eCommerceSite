@@ -4,15 +4,28 @@ import Navbar from "../components/Navbar.jsx";
 import useDarkMode from "../hooks/useDarkMode.jsx";
 // import { useProducts } from "../hooks/useProducts.jsx";
 import { useFetch } from "../hooks/useFetch.jsx";
+import { useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function App() {
   const [searchInput, setSearchInput] = useState("");
   const [selectedCats, setSelectedCats] = useState([]);
 
+  const navigate = useNavigate();
+
+  const token = useSelector((state) => state.user.token);
+
   // const productss = useProducts();
   const products = useFetch("https://dummyjson.com/products?limit=0");
 
   const [colorTheme, setTheme] = useDarkMode();
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <div className="flex">

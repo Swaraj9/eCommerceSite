@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar.jsx";
 import { Link } from "react-router-dom";
 import CartCard from "../components/CartCard.jsx";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const productObjects = useSelector((state) => state.cart.products);
   const productCount = useSelector((state) => state.cart.productCount);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const token = useSelector((state) => state.user.token);
 
   const [modal, setModal] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <div className="flex flex-col">

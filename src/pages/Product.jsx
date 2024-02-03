@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { FaCartArrowDown, FaStar, FaStarHalf } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import { useDispatch } from "react-redux";
-import {addProduct} from "../redux/cartSlice.js"
+import { addProduct } from "../redux/cartSlice.js";
+import { useSelector } from "react-redux";
 
 const Product = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState("");
+  const token = useSelector((state) => state.user.token);
 
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const ratingToStars = (rating) => {
     const stars = Math.floor(rating);
@@ -26,6 +30,12 @@ const Product = () => {
       </div>
     );
   };
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -75,7 +85,10 @@ const Product = () => {
             </div>
           </div>
           <div>{product.description}</div>
-          <button onClick={() => dispatch(addProduct(product))} className="text-2xl dark:text-yellow-400 dark:border-yellow-400 dark:hover:text-neutral-800 border-2 border-neutral-800 hover:border-yellow-400 p-1 pl-3 pr-3 rounded mt-5 duration-300 hover:bg-yellow-400 hover:text-neutral-700 flex items-center gap-3">
+          <button
+            onClick={() => dispatch(addProduct(product))}
+            className="text-2xl dark:text-yellow-400 dark:border-yellow-400 dark:hover:text-neutral-800 border-2 border-neutral-800 hover:border-yellow-400 p-1 pl-3 pr-3 rounded mt-5 duration-300 hover:bg-yellow-400 hover:text-neutral-700 flex items-center gap-3"
+          >
             <FaCartArrowDown />
             Add to Cart
           </button>
