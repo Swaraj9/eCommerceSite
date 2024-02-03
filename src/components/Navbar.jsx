@@ -93,9 +93,11 @@ const Navbar = ({
               <MdOutlineShoppingCart className="text-base sm:text-2xl" />
             </div>
           </Link>
-          <div className="text-2xl sm:text-4xl">
-            <PiUserCircle />
-          </div>
+          <Link to="/login">
+            <div className="text-2xl sm:text-4xl">
+              <PiUserCircle />
+            </div>
+          </Link>
         </div>
         <button
           onClick={() => setDrawerOpen(!drawerOpen)}
@@ -108,7 +110,7 @@ const Navbar = ({
         <Drawer
           open={drawerOpen}
           onClose={() => setDrawerOpen(!drawerOpen)}
-          direction="left"
+          direction="right"
           className="flex flex-col text-neutral-400"
         >
           <div className="h-full flex p-5 flex-col gap-5 bg-neutral-100 dark:bg-neutral-800">

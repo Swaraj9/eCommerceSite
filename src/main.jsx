@@ -7,6 +7,7 @@ import Product from "./pages/Product.jsx";
 import Cart from "./pages/Cart.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/store.js";
+import { Login } from "./pages/Login.jsx";
 
 const router = createBrowserRouter(
   [
@@ -22,6 +23,10 @@ const router = createBrowserRouter(
       path: "cart/",
       element: <Cart />,
     },
+    {
+      path: "login/",
+      element: <Login />,
+    },
   ],
   { basename: "/eCommerceSite/" }
 );
@@ -29,7 +34,7 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />  
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>
 );

@@ -26,7 +26,7 @@ const Cart = () => {
         )}
         <div className="mt-6 flex flex-col-reverse w-full sm:flex-row sm:justify-center">
           <div>
-            <div className="flex flex-col px-5 py-7 rounded-md">
+            <div className="flex flex-col px-5 py-7 rounded-md sm:w-4/5">
               <div className="font-normal text-3xl pb-4 ">Shopping cart</div>
               <hr className=" w-full" />
               <div className="p-3">
