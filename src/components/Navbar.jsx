@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaHamburger, FaSearch } from "react-icons/fa";
 import { PiUserCircle } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { useCategories } from "../hooks/useCategories";
 import { useFetch } from "../hooks/useFetch";
 import { IoClose } from "react-icons/io5";
@@ -11,6 +11,7 @@ import { IoMenu } from "react-icons/io5";
 import Switcher from "./Switcher";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
+import { removeToken } from "../redux/userSlice";
 
 const Category = ({ category, selectedCats, setSelectedCats }) => {
   const [selected, setSelected] = useState(false);
@@ -54,11 +55,37 @@ const Navbar = ({
   selectedCats,
   setSelectedCats,
 }) => {
-  const cartItemCount = useSelector((state) => state.cart.productCount);
+  const [username, setUsername] = useState("");
 
-  // const categoriess = useCategories();
+  const cartItemCount = useSelector((state) => state.cart.productCount);
+  const token = useSelector((state) => state.user.token)
+
   const categories = useFetch("https://dummyjson.com/products/categories");
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const getUser = async () => {
+      let res = await fetch("https://dummyjson.com/auth/me", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      res = await res.json();
+      setUsername(res.firstName)
+    };
+
+    getUser();
+  }, []);
+
+  const signOut = ( ) => {
+    dispatch(removeToken());
+    navigate("/login");
+  }
 
   return (
     <div className="flex flex-col fixed z-10 shadow-2xl dark:shadow-none w-full">
@@ -94,8 +121,9 @@ const Navbar = ({
             </div>
           </Link>
           <Link to="/login">
-            <div className="text-2xl sm:text-4xl">
+            <div className="text-2xl flex dark:border-2 dark:border-neutral-700 rounded-3xl p-1 pr-3 items-center gap-3 sm:text-4xl bg-neutral-300 dark:bg-inherit shadow-lg dark:shadow-none">
               <PiUserCircle />
+              <div className="text-base">{username}</div>
             </div>
           </Link>
         </div>
@@ -115,23 +143,23 @@ const Navbar = ({
         >
           <div className="h-full flex p-5 flex-col gap-5 bg-neutral-100 dark:bg-neutral-800">
             <div className="flex items-end w-full justify-between border-b-2 border-neutral-200 dark:border-neutral-600 pb-2">
+              <div>{username}</div>
               <PiUserCircle className="text-3xl text-[#e4c428]" />
-              <div>Username</div>
             </div>
             <Link to="/cart">
               <div className="flex items-end w-full justify-between border-b-2 border-neutral-200 dark:border-neutral-600 pb-2">
+                <div>Cart</div>
                 <div className="flex flex-row gap-2 items-center text-[#e4c428]">
                   <MdOutlineShoppingCart className="text-2xl" />
                   <div>{cartItemCount}</div>
                 </div>
-                <div>Cart</div>
               </div>
             </Link>
             <div className="flex items-end w-full justify-between border-b-2 border-neutral-200 dark:border-neutral-600 pb-2">
-              <Switcher drawer={true} />
               <div>Theme</div>
+              <Switcher drawer={true} />
             </div>
-            <button className="bg-[#FFD60A] text-neutral-50 dark:text-neutral-800 rounded-md pt-1 pb-1 mt-auto">
+            <button onClick={() => signOut()} className="bg-[#FFD60A] text-neutral-50 dark:text-neutral-800 rounded-md pt-1 pb-1 mt-auto">
               Sign Out
             </button>
           </div>
