@@ -4,7 +4,6 @@ import { PiUserCircle } from "react-icons/pi";
 import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-// import { useCategories } from "../hooks/useCategories";
 import { useFetch } from "../hooks/useFetch";
 import { IoClose } from "react-icons/io5";
 import { IoMenu } from "react-icons/io5";

@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { addToken } from "../redux/userSlice";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
-import "react-toastify/dist/ReactToastify.css";
 
 export const Login = (props) => {
   const [username, setUsername] = useState("");
