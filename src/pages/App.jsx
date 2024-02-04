@@ -22,9 +22,21 @@ function App() {
   const [colorTheme, setTheme] = useDarkMode();
 
   useEffect(() => {
-    if (!token) {
-      navigate("/login");
-    }
+    const checkToken = async () => {
+      let res = await fetch("https://dummyjson.com/auth/me", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const status = res.status;
+      if (status != 200) {
+        navigate("/login");
+      }
+    };
+
+    checkToken();
   }, []);
 
   return (

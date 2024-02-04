@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addToken } from "../redux/userSlice";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
+import hero from "../assets/hero.jpg";
 
 export const Login = (props) => {
   const [username, setUsername] = useState("");
@@ -13,7 +14,7 @@ export const Login = (props) => {
 
   const navigate = useNavigate();
 
-  const token =  useSelector((state) => state.user.token);
+  const token = useSelector((state) => state.user.token);
 
   const loginUser = async () => {
     let res = await fetch("https://dummyjson.com/auth/login", {
@@ -32,26 +33,39 @@ export const Login = (props) => {
 
     if (status != 200) {
       setErrorMsg(res.message);
-    }else{
+    } else {
       dispatch(addToken(res.token));
       navigate("/");
     }
-
   };
 
   useEffect(() => {
-    if (token) {
-      navigate("/");
-    }
+    const checkToken = async () => {
+      let res = await fetch("https://dummyjson.com/auth/me", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const status = res.status;
+      if (status == 200) {
+        navigate("/");
+      }
+    };
+
+    checkToken();
   }, []);
 
   return (
     <div className="flex items-center h-screen from-[#c9def4] via-[#f5ccd4] to-[#b8a4c9] dark:text-neutral-50 dark:from-neutral-800 dark:via-neutral-800 dark:to-neutral-800 bg-[length:200%_auto] animate-gradient dark:animate-none">
-      <div className="flex justify-start items-center bg-white dark:bg-neutral-700 dark:shadow-none w-9/12 sm:w-7/12 md:w-8/12 lg:w-7/12 m-auto p-10 rounded-3xl py-24 shadow-lg shadow-slate-500">
-        <div className="w-2/3 ">
+      <div className="flex justify-start items-center bg-white dark:bg-neutral-700 dark:shadow-none w-9/12 sm:w-7/12 md:w-8/12 lg:w-7/12 m-auto rounded-3xl shadow-lg shadow-slate-500">
+        <div className="w-2/3 p-10">
           <div className=" ">
-            <h1 className=" font-extrabold text-3xl text-[#262626] dark:text-neutral-50">Sign in</h1>
-            <div className="my-4 w-2/3">
+            <h1 className=" font-extrabold text-3xl text-[#262626] dark:text-neutral-50">
+              Sign in
+            </h1>
+            <div className="my-4">
               <div className="">
                 <input
                   type="text"
@@ -83,11 +97,11 @@ export const Login = (props) => {
                   Forgot Password?
                 </a>
               </div>
-              <br/>
+              <br />
               {errorMsg && <div className="text-red-400">{errorMsg}</div>}
               <br />
               <div className="flex w-full justify-center">
-              <button
+                <button
                   onClick={() => loginUser()}
                   className="text-lg text-neutral-300 border-none bg-neutral-800 dark:border-2 border-neutral-800 p-1 pl-3 pr-3 rounded mt-5 duration-300"
                 >
@@ -97,6 +111,7 @@ export const Login = (props) => {
             </div>
           </div>
         </div>
+        <img className="h-full rounded-tr-3xl rounded-br-3xl" src={hero}/>
       </div>
     </div>
   );
